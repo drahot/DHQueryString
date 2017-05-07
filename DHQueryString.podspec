@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "DHQueryString"
-  s.version      = "0.1.1"
+  s.version      = "0.1.2"
   s.summary      = "QueryString Encoder/Decoder For Swift"
 
   # This description is used to generate tags and improve search results.
@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
 
   s.homepage     = "https://github.com/drahot/DHQueryString"
   s.license      = { :type => "MIT", :file => "LICENSE" }
-  s.author             = { "Tatsuya Hotta" => "hotterdragon@gmail.com" }
+  s.author       = { "Tatsuya Hotta" => "hotterdragon@gmail.com" }
   s.platform     = :ios, "8.0"
 
   s.source       = { :git => "https://github.com/drahot/DHQueryString.git", :tag => "#{s.version}" }
