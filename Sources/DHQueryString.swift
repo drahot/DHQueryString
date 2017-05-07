@@ -5,15 +5,15 @@ public struct DHQueryString {
     
     private init() {}
     
-    static func toDictionary(_ queryString: String, removePercentEncoding: Bool = true) -> [String:String] {
+    public static func toDictionary(_ queryString: String, removePercentEncoding: Bool = true) -> [String:String] {
         return queryString.toDictionary(removePercentEncoding)
     }
     
-    static func toString(_ dictionary: [String:String], addingPercentEncoding: Bool = true) -> String {
+    public static func toString(_ dictionary: [String:String], addingPercentEncoding: Bool = true) -> String {
         return dictionary.toQueryString(addingPercentEncoding)
     }
     
-    static func toString<Key: ExpressibleByStringLiteral, Value: ExpressibleByStringLiteral>(
+    public static func toString<Key: ExpressibleByStringLiteral, Value: ExpressibleByStringLiteral>(
         _ dictionary: DictionaryLiteral<Key, Value>, addingPercentEncoding: Bool = true) -> String {
         return dictionary.toQueryString(addingPercentEncoding)
     }
