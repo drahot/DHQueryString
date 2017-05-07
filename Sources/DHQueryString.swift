@@ -3,6 +3,8 @@ import Foundation
 /// DHQueryString
 public struct DHQueryString {
     
+    private init() {}
+    
     static func toDictionary(_ queryString: String, removePercentEncoding: Bool = true) -> [String:String] {
         return queryString.toDictionary(removePercentEncoding)
     }
