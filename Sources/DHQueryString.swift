@@ -23,21 +23,21 @@ public struct DHQueryString {
 extension Dictionary where Key: ExpressibleByStringLiteral, Value: ExpressibleByStringLiteral {
     
     fileprivate func toQueryString(_ addingPercentEncoding: Bool = true) -> String {
-        return queryString(self.map {($0.key, $0.value)}, addingPercentEncoding: addingPercentEncoding)
+        return queryString(self.map {($0.key as! String, $0.value as! String)}, addingPercentEncoding: addingPercentEncoding)
     }
     
 }
 
-extension DictionaryLiteral where Key: ExpressibleByStringLiteral, Value: ExpressibleByStringLiteral {
+extension KeyValuePairs where Key: ExpressibleByStringLiteral, Value: ExpressibleByStringLiteral {
     
-    fileprivate func toQueryString(_ addingPercentEncoding: Bool = true) -> String {
-        return queryString(self.map {($0.key, $0.value)}, addingPercentEncoding: addingPercentEncoding)
+   fileprivate func toQueryString(_ addingPercentEncoding: Bool = true) -> String {
+        return queryString(self.map {($0.key as! String, $0.value as! String)}, addingPercentEncoding: addingPercentEncoding)
     }
     
 }
 
-fileprivate func queryString<T: Sequence>(_ seq: T, addingPercentEncoding: Bool) -> String
-    where T.Iterator.Element == (ExpressibleByStringLiteral, ExpressibleByStringLiteral) {
+fileprivate func queryString<T: Sequence, V: ExpressibleByStringLiteral>(_ seq: T, addingPercentEncoding: Bool) -> String
+    where T.Iterator.Element == (V, V) {
         let array = seq.map { (k, v) -> String in
             var key = k as! String
             var value = v as! String

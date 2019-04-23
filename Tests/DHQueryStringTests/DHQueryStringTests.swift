@@ -45,13 +45,13 @@ class DHQueryStringTests: XCTestCase {
     
     func testToStringFromDictionaryLiteral() {
         // Test Ordered Dictionary Like
-        let dict: DictionaryLiteral = ["name":"Hottin", "age":"24"]
+        let dict: KeyValuePairs = ["name":"Hottin", "age":"24"]
         XCTAssertEqual(DHQueryString.toString(dict), "name=Hottin&age=24")
         
-        let dictSpace: DictionaryLiteral = ["name":"Tatsuya Hotta", "age":"24"]
+        let dictSpace: KeyValuePairs = ["name":"Tatsuya Hotta", "age":"24"]
         XCTAssertEqual(DHQueryString.toString(dictSpace), "name=Tatsuya%20Hotta&age=24")
         
-        let dictMutlibyte: DictionaryLiteral =
+        let dictMutlibyte: KeyValuePairs =
             ["greeting":"おはようございます！こんにちは！", "おはようございます！こんにちは！":"greeting"]
         XCTAssertEqual(DHQueryString.toString(dictMutlibyte), "greeting=\(greeting)&\(greeting)=greeting")
         XCTAssertEqual(DHQueryString.toString(dictMutlibyte, addingPercentEncoding: false),
